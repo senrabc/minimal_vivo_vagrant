@@ -3,6 +3,25 @@
 #purpose: install vivo into a minimal box, from scratch so script can be adpated into 
 # scripted intall
 
+
+# install instructions
+# ref: https://wiki.duraspace.org/rest/scroll-pdf/1.0/sync-export?exportSchemeId=VIVO-7F0000010143B67C67562AA42EE4DE24&rootPageId=68070869
+
+# install prerequisites
+
+#TODO: script java 1.8x install
+
+#TODO: script Tomcat 8x install
+
+#TODO: script Apache Ant install
+
+# Mysql Install
+
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password rootpass'
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password rootpass'
+sudo apt-get update
+sudo apt-get -y install mysql-server-5.5
+
 # get vivo
 
 #version 1.7.1
@@ -12,12 +31,6 @@ wget https://sourceforge.net/projects/vivo/files/VIVO%20Application%20Source/viv
 
 # unpack the tar.gz
 tar -zxvf vivo-rel-1.7.tar.gz
-
-
-sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password rootpass'
-sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password rootpass'
-sudo apt-get update
-sudo apt-get -y install mysql-server-5.5
 
 
 # TODO: Change to setup instructions for VIVO
